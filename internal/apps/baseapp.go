@@ -3,6 +3,7 @@ package apps
 type BaseApp struct {
 	// tag         string
 	name        string
+	project     string
 	currentTag  string
 	newTag      string
 	buildPath   string
@@ -40,6 +41,7 @@ type BaseApp struct {
 // }
 type AppInfo interface {
 	GetName() string
+	GetProject() string
 	GetCurrentTag() string
 	GetNewTag() string
 	GetBuildPath() string
@@ -51,6 +53,10 @@ type AppInfo interface {
 
 func (b *BaseApp) GetName() string {
 	return b.name
+}
+
+func (b *BaseApp) GetProject() string {
+	return b.project
 }
 
 func (b *BaseApp) GetCurrentTag() string {

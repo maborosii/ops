@@ -1,14 +1,38 @@
 package images
 
-import "ops/internal/apps"
+import (
+	"context"
+	"ops/internal/apps"
+)
 
 type ImagesItf interface {
-	BuildImage() error
-	PushImage() error
-	ModifyBuildFile() error
+	SetInChan(inchan <-chan apps.AppInfo)
+	SetOutChan(outchan chan<- apps.AppInfo)
+	SetImageTags(tags ...string)
+
+	BuildImage(context.Context, apps.AppInfo) error
+	PushImage(context.Context, apps.AppInfo) error
+	// CleanImage() error
+	// ModifyBuildFile() error
+
+	Run(apps.AppInfo)
 }
 
 type BaseImage struct {
 	inChan  <-chan apps.AppInfo
 	outChan chan<- apps.AppInfo
+
+	tags []string
+}
+
+func (b *BaseImage) SetInChan(inchan <-chan apps.AppInfo) {
+	b.inChan = inchan
+}
+
+func (b *BaseImage) SetOutChan(outchan chan<- apps.AppInfo) {
+	b.outChan = outchan
+}
+
+func (b *BaseImage) SetImageTags(tags ...string) {
+	b.tags = tags
 }
