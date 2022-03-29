@@ -1,8 +1,11 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
+
+	"ops/internal/deployers/customhelm"
 
 	"helm.sh/helm/v3/pkg/action"
 	"helm.sh/helm/v3/pkg/cli"
@@ -75,8 +78,19 @@ func main() {
 	// 	log.Printf("%+v", rel)
 	// }
 	client := action.NewInstall(actionConfig)
-	// v := *values.Options{
+	release, err := customhelm.RunInstall([]string{"ale-case-service", "/data/yw_opert/k8s/qa/helm_qa/ale-case-service"},
+		client,
+		map[string]interface{}{
+			"image.repository": "harbor.minstone.com/app/ale-case-service",
+			"image.tag":        "1.2.4.2",
+		},
+		"qa",
+		os.Stdout)
 
-	// }
+	if err != nil {
+		fmt.Println(err)
+		panic("install failed")
+	}
+	fmt.Println(release.Name, "install successful")
 
 }

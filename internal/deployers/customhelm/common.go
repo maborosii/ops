@@ -9,8 +9,6 @@ import (
 	"helm.sh/helm/v3/pkg/chart"
 )
 
-// var settings = cli.New()
-
 func debug(format string, v ...interface{}) {
 	if true {
 		format = fmt.Sprintf("[debug] %s\n", format)
