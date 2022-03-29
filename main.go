@@ -81,7 +81,7 @@ func main() {
 	release, err := customhelm.RunInstall([]string{"ale-case-service", "/data/yw_opert/k8s/qa/helm_qa/ale-case-service"},
 		client,
 		map[string]interface{}{
-			"image.repository": "harbor.minstone.com/app/ale-case-service",
+			"image.repository": "harbor.minstone.com:5002/app/ale-case-service",
 			"image.tag":        "1.2.4.2",
 		},
 		"qa",
