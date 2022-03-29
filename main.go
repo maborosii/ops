@@ -56,6 +56,7 @@ func main() {
 
 	// defer rd.Close()
 	settings := cli.New()
+	settings.SetNamespace("qa")
 
 	actionConfig := new(action.Configuration)
 	// // You can pass an empty string instead of settings.Namespace() to list
