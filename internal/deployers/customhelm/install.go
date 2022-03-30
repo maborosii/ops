@@ -11,7 +11,7 @@ import (
 	"helm.sh/helm/v3/pkg/release"
 )
 
-func RunInstall(args []string, client *action.Install, values map[string]interface{}, ns string, out io.Writer) (*release.Release, error) {
+func RunInstall(ctx context.Context, args []string, client *action.Install, values map[string]interface{}, ns string, out io.Writer) (*release.Release, error) {
 	debug("Original chart version: %q", client.Version)
 	if client.Version == "" && client.Devel {
 		debug("setting version to >0.0.0-0")
@@ -25,7 +25,7 @@ func RunInstall(args []string, client *action.Install, values map[string]interfa
 	}
 	client.ReleaseName = name
 
-	// 若chart本地存在，则返回该app的绝对路径
+	// 若chart本地存在，则返回该chart的绝对路径
 	// 若本地不存在，则远端拉取
 	cp, err := client.ChartPathOptions.LocateChart(chart, nil)
 	if err != nil {
@@ -54,6 +54,5 @@ func RunInstall(args []string, client *action.Install, values map[string]interfa
 	}
 
 	client.Namespace = ns
-	ctx := context.Background()
 	return client.RunWithContext(ctx, chartRequested, values)
 }

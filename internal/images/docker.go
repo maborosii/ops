@@ -15,9 +15,11 @@ import (
 	"github.com/docker/docker/pkg/archive"
 )
 
+// 查看DockerImage是否实现ImagesItf接口
+var _ ImagesItf = (*DockerImage)(nil)
+
 type DockerCfg struct {
-	Repository string
-	AuthCfg    types.AuthConfig
+	AuthCfg types.AuthConfig
 
 	Cli *client.Client
 }
@@ -57,7 +59,7 @@ func (di *DockerImage) PushImage(ctx context.Context, a apps.AppInfo) error {
 
 	authConfigEncoded := base64.URLEncoding.EncodeToString(authConfigBytes)
 
-	tag := fmt.Sprintf("%s/%s/%s:%s", di.Repository, a.GetProject(), a.GetName(), di.tags[0])
+	tag := fmt.Sprintf("%s/%s/%s:%s", di.GetRepository(), a.GetProject(), a.GetName(), di.GetImageTags()[0])
 	opts := types.ImagePushOptions{RegistryAuth: authConfigEncoded}
 	rd, err := di.Cli.ImagePush(ctxTimeOut, tag, opts)
 
@@ -70,19 +72,20 @@ func (di *DockerImage) PushImage(ctx context.Context, a apps.AppInfo) error {
 
 func (di *DockerImage) Run(ctx context.Context) {
 	var (
-		ok      bool
-		appInfo apps.AppInfo
-		err     error
+		ok        bool
+		appInfo   apps.AppInfo
+		buildInfo BuildInfo
+		err       error
 	)
 
-HANDLE_LOOP:
+BUILD_LOOP:
 	for {
 		select {
 		case <-ctx.Done():
-			break HANDLE_LOOP
+			break BUILD_LOOP
 		case appInfo, ok = <-di.inChan:
 			if !ok {
-				break HANDLE_LOOP
+				break BUILD_LOOP
 			}
 		}
 		// main logic
@@ -95,8 +98,9 @@ HANDLE_LOOP:
 		if err != nil {
 			panic(err)
 		}
+		buildInfo = NewBuildInfo(appInfo, di)
 
-		di.outChan <- appInfo
+		di.outChan <- buildInfo
 	}
 
 }

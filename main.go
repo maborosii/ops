@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -55,6 +56,7 @@ func main() {
 	// }
 
 	// defer rd.Close()
+	ctx := context.Background()
 	settings := cli.New()
 	settings.SetNamespace("qa")
 
@@ -79,7 +81,7 @@ func main() {
 	// 	log.Printf("%+v", rel)
 	// }
 	client := action.NewInstall(actionConfig)
-	release, err := customhelm.RunInstall([]string{"ale-case-service", "/data/yw_opert/k8s/qa/helm_qa/ale-case-service"},
+	release, err := customhelm.RunInstall(ctx, []string{"ale-case-service", "/data/yw_opert/k8s/qa/helm_qa/ale-case-service"},
 		client,
 		map[string]interface{}{
 			"image.repository": "harbor.minstone.com:5002/app/ale-case-service",
