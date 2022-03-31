@@ -10,7 +10,7 @@ func (j *JavaApp) SetJarName(name string) {
 	j.jarName = name
 }
 
-func (j *JavaApp) GetName() string {
+func (j *JavaApp) GetRealName() string {
 	return j.jarName
 }
 

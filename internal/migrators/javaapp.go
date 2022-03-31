@@ -14,8 +14,8 @@ type JavaMigrator struct {
 
 // backup old package
 func (j *JavaMigrator) OldPackageMovement(a apps.AppInfo) error {
-	packagePath := path.Join(a.GetBuildPath(), a.GetExtraPath(), a.GetName())
-	backupPath := path.Join(j.GetBackupPath(), a.GetName())
+	packagePath := path.Join(a.GetBuildPath(), a.GetExtraPath(), a.GetRealName())
+	backupPath := path.Join(j.GetBackupPath(), a.GetRealName())
 	if !j.IsExistsBackupPath() {
 		return fmt.Errorf("backup path is not exists")
 	}
@@ -25,8 +25,8 @@ func (j *JavaMigrator) OldPackageMovement(a apps.AppInfo) error {
 
 // migrate new package
 func (j *JavaMigrator) NewPackageMovement(a apps.AppInfo) error {
-	packagePath := path.Join(a.GetBuildPath(), a.GetExtraPath(), a.GetName())
-	newPath := path.Join(j.GetNewPath(), a.GetName())
+	packagePath := path.Join(a.GetBuildPath(), a.GetExtraPath(), a.GetRealName())
+	newPath := path.Join(j.GetNewPath(), a.GetRealName())
 	if !j.IsExistsNewPath() {
 		return fmt.Errorf("upload path is not exists")
 	}
@@ -64,5 +64,4 @@ func (j *JavaMigrator) Run(a apps.AppInfo) {
 		}
 		j.outChan <- a
 	}()
-
 }

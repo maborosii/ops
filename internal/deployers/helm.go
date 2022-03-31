@@ -48,7 +48,6 @@ func (h *HelmCfg) SetUninstallClient() {
 }
 
 func (dh *DeployerByHelm) Install(ctx context.Context, b images.BuildInfo) error {
-	ns := "qa"
 	ctxTimeOut, cancel := context.WithTimeout(ctx, 120*time.Second)
 
 	defer cancel()
@@ -59,7 +58,7 @@ func (dh *DeployerByHelm) Install(ctx context.Context, b images.BuildInfo) error
 		"image.tag":        b.GetImageTags()[0],
 	}
 
-	release, err := customhelm.RunInstall(ctxTimeOut, commonArgs, dh.InstallCli, installArgs, ns, os.Stdout)
+	release, err := customhelm.RunInstall(ctxTimeOut, commonArgs, dh.InstallCli, installArgs, dh.settings.Namespace(), os.Stdout)
 	if err != nil {
 		fmt.Println(err)
 		panic("install failed")
@@ -74,7 +73,7 @@ func (dh *DeployerByHelm) Uninstall(b images.BuildInfo) error {
 	if err != nil {
 		panic("uninstall failed")
 	}
-	fmt.Println(b.GetName(), "install successful")
+	fmt.Println(b.GetName(), "uninstall successful")
 	return nil
 
 }

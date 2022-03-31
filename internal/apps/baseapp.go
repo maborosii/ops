@@ -41,6 +41,7 @@ type BaseApp struct {
 // }
 type AppInfo interface {
 	GetName() string
+	GetRealName() string
 	GetProject() string
 	GetCurrentTag() string
 	GetNewTag() string
@@ -52,6 +53,10 @@ type AppInfo interface {
 }
 
 func (b *BaseApp) GetName() string {
+	return b.name
+}
+
+func (b *BaseApp) GetRealName() string {
 	return b.name
 }
 
