@@ -6,7 +6,7 @@ type JavaApp struct {
 	jarName string
 }
 
-func (j *JavaApp) SetJarName(name string) {
+func (j *JavaApp) SetRealName(name string) {
 	j.jarName = name
 }
 
