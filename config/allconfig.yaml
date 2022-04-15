@@ -1,0 +1,232 @@
+app:
+  backend:
+    java:
+      - app_name: ale-archive-app
+        package_name: ale-archive-app.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-archive-app/ale-archive-app.jar
+        build_path: /data/yw_opert/docker/build/app/ale-archive-app
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-archive-app
+      - app_name: ale-case-service
+        package_name: ale-case-service-0.0.1-SNAPSHOT.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-case-service/ale-case-service-0.0.1-SNAPSHOT.jar
+        build_path: /data/yw_opert/docker/build/app/ale-case-service
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-case-service
+      - app_name: ale-data-center-platform
+        package_name: ale-data-center-platform-0.0.1-SNAPSHOT.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-data-center-platform/ale-data-center-platform/ale-data-center-platform-0.0.1-SNAPSHOT.jar
+        build_path: /data/yw_opert/docker/build/app/ale-data-center-platform
+        extra_build_path: ale-data-center-platform
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-data-center-platform
+      - app_name: ale-email-delivery-app
+        package_name: ale-email-delivery-app.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-email-delivery-app/ale-email-delivery-app.jar
+        build_path: /data/yw_opert/docker/build/app/ale-email-delivery-app
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-email-delivery-app
+      - app_name: ale-external-service
+        package_name: ale-external-service.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-external-service/ale-external-service.jar
+        build_path: /data/yw_opert/docker/build/app/ale-external-service
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-external-service
+      - app_name: ale-law-case-supervision
+        package_name: ale-law-case-supervision.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-law-case-supervision/ale-law-case-supervision.jar
+        build_path: /data/yw_opert/docker/build/app/ale-law-case-supervision
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-law-case-supervision
+      - app_name: ale-mq-consumer
+        package_name: ale-mq-consumer-0.0.1-SNAPSHOT.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-mq-consumer/ale-mq-consumer-0.0.1-SNAPSHOT.jar
+        build_path: /data/yw_opert/docker/build/app/ale-mq-consumer
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-mq-consumer
+      - app_name: ale-mq-message
+        package_name: ale-mq-message.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-mq-message/ale-mq-message.jar
+        build_path: /data/yw_opert/docker/build/app/ale-mq-message
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-mq-message
+      - app_name: ale-mysql-data
+        package_name: ale-mysql-data.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-mysql-data/ale-mysql-data.jar
+        build_path: /data/yw_opert/docker/build/app/ale-mysql-data
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-mysql-data
+      - app_name: ale-office-service
+        package_name: ale-office-service.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-office-service/ale-office-service/ale-office-service.jar
+        build_path: /data/yw_opert/docker/build/app/ale-office-service
+        extra_build_path: ale-office-service
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-office-service
+      - app_name: ale-platform
+        package_name: ale-platform-0.0.1-SNAPSHOT.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-platform/ale-platform/ale-platform-0.0.1-SNAPSHOT.jar
+        build_path: /data/yw_opert/docker/build/app/ale-platform
+        extra_build_path: ale-platform
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-platform
+      - app_name: ale-seal-service
+        package_name: ale-seal-service.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-seal-service/ale-seal-service.jar
+        build_path: /data/yw_opert/docker/build/app/ale-seal-service
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-seal-service
+      - app_name: ale-task-job-admin
+        package_name: ale-task-job-admin.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-task-job-admin/ale-task-job-admin.jar
+        build_path: /data/yw_opert/docker/build/app/ale-task-job-admin
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-task-job-admin
+      - app_name: ale-task-job-executor-biz-data
+        package_name: ale-task-job-executor-biz-data.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-task-job-executor-biz-data/ale-task-job-executor-biz-data.jar
+        build_path: /data/yw_opert/docker/build/app/ale-task-job-executor-biz-data
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-task-job-executor-biz-data
+      - app_name: ale-task-job-executor-data-exchange
+        package_name: ale-task-job-executor-data-exchange.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-task-job-executor-data-exchange/ale-task-job-executor-data-exchange.jar
+        build_path: /data/yw_opert/docker/build/app/ale-task-job-executor-data-exchange
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-task-job-executor-data-exchange
+      - app_name: ale-task-job-executor-push-data-share
+        package_name: ale-task-job-executor-push-data-share.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-task-job-executor-push-data-share/ale-task-job-executor-push-data-share.jar
+        build_path: /data/yw_opert/docker/build/app/ale-task-job-executor-push-data-share
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-task-job-executor-push-data-share
+      - app_name: ale-task-job-executor-supervision
+        package_name: ale-task-job-executor-supervision.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/ale-task-job-executor-supervision/ale-task-job-executor-supervision.jar
+        build_path: /data/yw_opert/docker/build/app/ale-task-job-executor-supervision
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/ale-task-job-executor-supervision
+      - app_name: appr-law-card-sync-task
+        package_name: appr-law-card-sync-task.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/appr-law-card-sync-task/appr-law-card-sync-task.jar
+        build_path: /data/yw_opert/docker/build/app/appr-law-card-sync-task
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/appr-law-card-sync-task
+      - app_name: appr-law-datacenter-service-egress
+        package_name: appr-law-egress-gateway.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/appr-law-datacenter-service-egress/appr-law-egress-gateway.jar
+        build_path: /data/yw_opert/docker/build/app/appr-law-datacenter-service-egress
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/appr-law-datacenter-service-egress
+      - app_name: appr-law-team-service
+        package_name: appr-law-egress-gateway.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/appr-law-team-service/appr-law-egress-gateway.jar
+        build_path: /data/yw_opert/docker/build/app/appr-law-team-service
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/appr-law-team-service
+      - app_name: archiveweb
+        package_name: ArchiveWeb
+        package_type: directory
+        package_path: /data/yw_opert/docker/build/app/archiveweb/ArchiveWeb
+        build_path: /data/yw_opert/docker/build/app/archiveweb
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/archiveweb
+      - app_name: changeTool
+        package_name: changeTool.war
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/changeTool/changeTool.war
+        build_path: /data/yw_opert/docker/build/app/changeTool
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/changeTool
+      - app_name: docking
+        package_name: docking.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/docking/docking.jar
+        build_path: /data/yw_opert/docker/build/app/docking
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/docking
+      - app_name: esTools
+        package_name: esTool
+        package_type: directory
+        package_path: /data/yw_opert/docker/build/app/esTools/esTool
+        build_path: /data/yw_opert/docker/build/app/esTools
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/esTools
+      - app_name: gateway
+        package_name: appr-law-api-gateway.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/gateway/appr-law-api-gateway.jar
+        build_path: /data/yw_opert/docker/build/app/gateway
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/gateway
+      - app_name: law-app-apprtask
+        package_name: tomcat-appr
+        package_type: directory
+        package_path: /data/yw_opert/docker/build/app/law-app-apprtask/tomcat-appr
+        build_path: /data/yw_opert/docker/build/app/law-app-apprtask
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/law-app-apprtask
+      - app_name: law-app-attachmenttool
+        package_name: AttachmentTool
+        package_type: directory
+        package_path: /data/yw_opert/docker/build/app/law-app-attachmenttool/webapps/AttachmentTool
+        build_path: /data/yw_opert/docker/build/app/law-app-attachmenttool
+        extra_build_path: webapps
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/law-app-attachmenttool
+      - app_name: law-app-cat
+        package_name: cat
+        package_type: directory
+        package_path: /data/yw_opert/docker/build/app/law-app-cat/webapps/cat
+        build_path: /data/yw_opert/docker/build/app/law-app-cat
+        extra_build_path: webapps
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/law-app-cat
+      - app_name: law-app-egress
+        package_name: appr-law-egress-gateway.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/law-app-egress/appr-law-egress-gateway.jar
+        build_path: /data/yw_opert/docker/build/app/law-app-egress
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/law-app-egress
+      - app_name: xxl-job-admin
+        package_name: xxl-job-admin.jar
+        package_type: file
+        package_path: /data/yw_opert/docker/build/app/xxl-job-admin/xxl-job-admin.jar
+        build_path: /data/yw_opert/docker/build/app/xxl-job-admin
+        helm_path: /data/yw_opert/k8s/prod/helm_prod/xxl-job-admin
+    python: []
+  frontend:
+    - app_name: ales
+      package_name: ales
+      package_type: directory
+      package_path: /data/yw_opert/docker/build/app/ale-frontend/ales
+      build_path: /data/yw_opert/docker/build/app/ale-frontend
+      parents_app: ale-frontend
+      helm_path: /data/yw_opert/docker/build/app/ale-frontend
+    - app_name: enforcement
+      package_name: enforcement
+      package_type: directory
+      package_path: /data/yw_opert/docker/build/app/ale-frontend/enforcement
+      build_path: /data/yw_opert/docker/build/app/ale-frontend
+      parents_app: ale-frontend
+      helm_path: /data/yw_opert/docker/build/app/ale-frontend
+    - app_name: enforcement-pad
+      package_name: enforcement-pad
+      package_type: directory
+      package_path: /data/yw_opert/docker/build/app/ale-frontend/enforcement-pad
+      build_path: /data/yw_opert/docker/build/app/ale-frontend
+      parents_app: ale-frontend
+      helm_path: /data/yw_opert/docker/build/app/ale-frontend
+    - app_name: enforcement-cloud
+      package_name: enforcement-cloud
+      package_type: directory
+      package_path: /data/yw_opert/docker/build/app/ale-frontend/enforcement-cloud
+      build_path: /data/yw_opert/docker/build/app/ale-frontend
+      parents_app: ale-frontend
+      helm_path: /data/yw_opert/docker/build/app/ale-frontend
+    - app_name: offsite-enforcement
+      package_name: offsite-enforcement
+      package_type: directory
+      package_path: /data/yw_opert/docker/build/app/ale-frontend/offsite-enforcement
+      build_path: /data/yw_opert/docker/build/app/ale-frontend
+      parents_app: ale-frontend
+      helm_path: /data/yw_opert/docker/build/app/ale-frontend
+    - app_name: offsite-ales
+      package_name: offsite-ales
+      package_type: directory
+      package_path: /data/yw_opert/docker/build/app/ale-frontend/offsite-ales
+      build_path: /data/yw_opert/docker/build/app/ale-frontend
+      parents_app: ale-frontend
+      helm_path: /data/yw_opert/docker/build/app/ale-frontend

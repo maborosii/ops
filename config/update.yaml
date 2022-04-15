@@ -1,0 +1,74 @@
+base-build-path: &base-build-path "/data/yw_opert/docker/build/app"
+base-helm-path: &base-helm-path "/data/yw_opert/k8s/prod/helm_prod"
+
+minstone:
+  app: 
+    backend:
+      java:
+        - app-name: ale-archive-app
+          type: file
+          package-name: ale-archive-app.jar
+          build-path: *base-build-path
+          extra-build-path: 
+            enabled: false
+            path: 
+          parents-path:
+            enabled: false
+            path:
+          helm-path: *base-helm-path
+          
+        - name: ale-case-service
+          type: file
+          package-name: ale-case-service-0.0.1-SNAPSHOT.jar
+          build-path: *base-build-path
+          extra-build-path: 
+            enabled: false
+            path: 
+          parents-path:
+            enabled: false
+            path:
+          helm-path: *base-helm-path
+        - name: ale-data-center-platform
+          type: file
+          package-name: ale-data-center-platform-0.0.1-SNAPSHOT.jar
+          build-path: *base-build-path
+          extra-build-path: 
+            enabled: true
+            path: ale-data-center-platform
+          parents-path:
+            enabled: false
+            path:
+          helm-path: *base-helm-path
+        - name: ale-email-delivery-app
+          type: file
+          package-name: ale-email-delivery-app.jar 
+          build-path: *base-build-path
+          extra-build-path: 
+            enabled: false
+            path: 
+          parents-path:
+            enabled: false
+            path:
+          helm-path: *base-helm-path
+        - name: ale-external-service
+          type: file
+          package-name: ale-external-service.jar
+          build-path: *base-build-path
+          extra-build-path: 
+            enabled: false
+            path: 
+          parents-path:
+            enabled: false
+            path:
+          helm-path: *base-helm-path
+
+      python:
+      go:
+    frontend:
+      - name: ale-external-service
+        package-name: ale-external-service.jar
+        build-path: *base-build-path
+        extra-build-path: 
+          enabled: true
+          path: ale-frontend 
+        helm-path: *base-helm-path
